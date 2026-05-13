@@ -547,11 +547,21 @@ public class Main extends Application {
     }
 
     private void showVisualizer() {
-        contentArea.getChildren().clear();
-        Label label = new Label("📊 Algorithm Visualizer - Coming Soon");
-        label.setTextFill(Color.WHITE);
-        label.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        contentArea.getChildren().add(label);
+        com.algomart.visualizer.SortifyVisualizer sortify = new com.algomart.visualizer.SortifyVisualizer(allProducts, cart, () -> {
+            // Restore previous layout
+            mainLayout.setTop(buildTopBar());
+            mainLayout.setLeft(buildSidebar());
+            mainLayout.setRight(null);
+            mainLayout.setBottom(null);
+            mainLayout.setCenter(buildContentArea());
+            showProductGrid(displayedProducts);
+        });
+        
+        mainLayout.setTop(null);
+        mainLayout.setLeft(null);
+        mainLayout.setRight(null);
+        mainLayout.setBottom(null);
+        mainLayout.setCenter(sortify.getView());
     }
 
     public static void main(String[] args) {
