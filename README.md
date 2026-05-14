@@ -40,6 +40,7 @@ A JavaFX-based online shopping application built as a Design and Analysis of Alg
 ---
 
 ## 🗂️ Project Structure
+```
 src/com/algomart/
 ├── algorithms/
 │   ├── sorting/        # QuickSort, MergeSort, HeapSort
@@ -51,7 +52,7 @@ src/com/algomart/
 ├── Main.java           # Entry point + main UI
 ├── Product.java        # Product model
 ├── CartItem.java       # Cart item model
-
+```
 
 ---
 
