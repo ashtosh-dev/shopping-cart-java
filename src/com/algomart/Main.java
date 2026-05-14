@@ -228,12 +228,40 @@ public class Main extends Application {
         ComboBox<String> sortAlgo = new ComboBox<>();
         sortAlgo.getItems().addAll("QuickSort", "MergeSort", "HeapSort");
         sortAlgo.setValue("QuickSort");
-        sortAlgo.setStyle("-fx-background-color: #0f3460; -fx-text-fill: white;");
+        sortAlgo.setStyle("-fx-background-color: #0f3460; -fx-text-fill: white; -fx-mark-color: white;");
+        sortAlgo.setCellFactory(lv -> new ListCell<>() {
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? null : item);
+                setStyle("-fx-background-color: #0f3460; -fx-text-fill: white;");
+            }
+        });
+        sortAlgo.setButtonCell(new ListCell<>() {
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? null : item);
+                setStyle("-fx-background-color: #0f3460; -fx-text-fill: white;");
+            }
+        });
 
         ComboBox<String> sortField = new ComboBox<>();
         sortField.getItems().addAll("Price ↑", "Rating ↓", "Name A-Z");
         sortField.setValue("Price ↑");
-        sortField.setStyle("-fx-background-color: #0f3460; -fx-text-fill: white;");
+        sortField.setStyle("-fx-background-color: #0f3460; -fx-text-fill: white; -fx-mark-color: white;");
+        sortField.setCellFactory(lv -> new ListCell<>() {
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? null : item);
+                setStyle("-fx-background-color: #0f3460; -fx-text-fill: white;");
+            }
+        });
+        sortField.setButtonCell(new ListCell<>() {
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? null : item);
+                setStyle("-fx-background-color: #0f3460; -fx-text-fill: white;");
+            }
+        });
 
         Button sortBtn = new Button("Apply Sort");
         sortBtn.setStyle(
@@ -532,10 +560,8 @@ public class Main extends Application {
     // ─── PLACEHOLDERS ──────────────────────────────────────────
     private void showBudgetPlanner() {
         contentArea.getChildren().clear();
-        Label label = new Label("💰 Budget Planner - Coming Soon");
-        label.setTextFill(Color.WHITE);
-        label.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        contentArea.getChildren().add(label);
+        BudgetPlannerScreen screen = new BudgetPlannerScreen(allProducts, cart, this::updateCartCount);
+        contentArea.getChildren().add(screen.getView());
     }
 
     private void showWishlist() {
