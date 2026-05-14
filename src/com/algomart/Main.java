@@ -571,16 +571,15 @@ public class Main extends Application {
     }
 
     private void showVisualizer() {
-        com.algomart.visualizer.SortifyVisualizer sortify = new com.algomart.visualizer.SortifyVisualizer(allProducts, cart, () -> {
-            // Restore previous layout
-            mainLayout.setTop(buildTopBar());
-            mainLayout.setLeft(buildSidebar());
-            mainLayout.setRight(null);
-            mainLayout.setBottom(null);
-            mainLayout.setCenter(buildContentArea());
-            showProductGrid(displayedProducts);
-        });
-        
+        com.algomart.visualizer.SortifyVisualizer sortify =
+                new com.algomart.visualizer.SortifyVisualizer(allProducts, cart, () -> {
+                    mainLayout.setTop(buildTopBar());
+                    mainLayout.setLeft(buildSidebar());
+                    mainLayout.setRight(null);
+                    mainLayout.setBottom(null);
+                    mainLayout.setCenter(buildContentArea());
+                    showProductGrid(displayedProducts);
+                });
         mainLayout.setTop(null);
         mainLayout.setLeft(null);
         mainLayout.setRight(null);
