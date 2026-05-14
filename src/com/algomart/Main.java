@@ -566,10 +566,8 @@ public class Main extends Application {
 
     private void showWishlist() {
         contentArea.getChildren().clear();
-        Label label = new Label("❤️ Wishlist Optimizer - Coming Soon");
-        label.setTextFill(Color.WHITE);
-        label.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        contentArea.getChildren().add(label);
+        WishlistScreen screen = new WishlistScreen(allProducts, cart, this::updateCartCount);
+        contentArea.getChildren().add(screen.getView());
     }
 
     private void showVisualizer() {
